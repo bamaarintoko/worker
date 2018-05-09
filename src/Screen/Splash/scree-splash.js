@@ -13,6 +13,12 @@ function mapStateToProps(state) {
 }
 
 class ScreenSplash extends Component {
+    componentDidMount() {
+        setTimeout(() => {
+            this.props.navigation.dispatch({type: 'Login'});
+        }, 3000)
+    }
+    
     render() {
         return (
             <View style={styles.container}>
