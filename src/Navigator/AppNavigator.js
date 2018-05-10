@@ -7,46 +7,58 @@ import {addNavigationHelpers, DrawerNavigator, StackNavigator, TabNavigator} fro
 
 import LoginScreen from '../Screen/Login/screen-login'
 import SplashScreen from '../Screen/Splash/scree-splash'
+import ScreenHome from '../Screen/Home/screen-home'
+import ScreenAdd from '../Screen/Home/screen-add'
+import ScreenNotif from '../Screen/Home/screen-notif'
+import ScreenFavorit from '../Screen/Home/screen-favorit'
+import ScreenProfil from '../Screen/Home/screen-profil'
+import ScreenSetting from '../Screen/Setting/screen-setting'
+import ScreenRegister from '../Screen/Register/screen-register'
+import ScreenDetailProject from '../Screen/DetailProject/screen-detail-project'
+import Home from '../Screen/Home/home'
 
 import {connect} from "react-redux";
 import { addListener } from '../Utils/Redux';
-// const MyApp = TabNavigator({
-//     Homee: {
-//         screen: HomePage,
-//     },
-//     Location : {
-//         screen :ViewLocation
-//     },
-//     Message : {
-//         screen : ViewMessage
-//     },
-//     Profile : {
-//         screen : ViewProfile
-//     }
-// }, {
-//     tabBarPosition: 'bottom',
-//     animationEnabled: false,
-//     swipeEnabled:false,
-//     tabBarOptions: {
-//         lazy: true,
-//         showIcon: true,
-//         showLabel:false,
-//         activeTintColor: '#03A9F4',
-//         inactiveTintColor: 'gray',
-//         labelStyle: {
-//             color: '#424242'
-//         },
-//         style: {
-//             backgroundColor: 'white',
-//         },
-//     },
-// })
+const MyApp = TabNavigator({
+    Homee: {
+        screen: ScreenHome,
+    },Favorit : {
+        screen : ScreenFavorit
+    },
+    Add : {
+        screen :ScreenAdd
+    },
+    Notif : {
+        screen : ScreenNotif
+    },
+    
+    Profil : {
+        screen : ScreenProfil
+    }
+}, {
+    tabBarPosition: 'bottom',
+    animationEnabled: false,
+    swipeEnabled:false,
+    tabBarOptions: {
+        lazy: true,
+        showIcon: true,
+        showLabel:false,
+        activeTintColor: '#03A9F4',
+        inactiveTintColor: 'gray',
+        labelStyle: {
+            color: '#424242'
+        },
+        style: {
+            backgroundColor: 'white',
+        },
+    },
+})
 
 // const sideBar = DrawerNavigator({
 //     Home: {screen: MyApp},
 
 // }, {
-//     contentComponent: Drawer
+//     // contentComponent: Drawer
 //     // contentComponent: AppDrawer
 // });
 
@@ -54,6 +66,10 @@ import { addListener } from '../Utils/Redux';
 export const AppNavigator = StackNavigator({
     Login: {screen: LoginScreen},
     Splash: {screen: SplashScreen},
+    Setting: {screen: ScreenSetting},
+    Register: {screen: ScreenRegister},
+    DetailProject: {screen: ScreenDetailProject},
+    Menu: {screen: MyApp},
 
 }, {
     headerMode: 'none',
@@ -79,7 +95,10 @@ class AppWithNavigationState extends Component {
             return true;
         }.bind(this));
     }
-
+    componentDidUpdate(prevProps, prevState) {
+        // console.log("aaa");
+    }
+    
     componentWillUnmount() {
         BackHandler.removeEventListener('hardwareBackPress');
     }

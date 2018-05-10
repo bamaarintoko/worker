@@ -10,11 +10,12 @@ import {persistReducer, persistStore} from "redux-persist";
 const persistConfig = {
     key: 'root',
     storage:AsyncStorage,
-    whitelist: ['redGetUserId','redAuthCredential']
+    whitelist: ['redAuth']
 }
 
 const persistedReducer = persistReducer(persistConfig, app)
-    export const store = createStore(persistedReducer, applyMiddleware(thunk, middleware))
+export const store = createStore(persistedReducer, applyMiddleware(thunk, middleware))
+// console.log("app",store)
     export const persistor = persistStore(store)
 
 // export default () => {
