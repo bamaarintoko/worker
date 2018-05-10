@@ -7,38 +7,52 @@ export const ProjectCard = ({ data }) => {
         <View style={{ height: 115, padding: 5, marginTop: 5 }}>
             <View style={{ borderWidth: 0.5, borderColor: data.project_status === "publish" ? "#90CAF9" : '#A5D6A7', overflow: 'hidden', borderRadius: 10, backgroundColor: '#FFFFFF', height: 90, width: '100%', top: 10, marginRight: 50 }}>
                 <View style={{ paddingTop: 10, paddingLeft: 5, paddingRight: 5, flex: 1, flexDirection: 'column' }}>
+                    <TouchableWithoutFeedback onPress={() => { console.log("bbb") }}>
+                        <View style={{ flex: 2, flexDirection: 'column' }}>
 
-                    <View style={{ flex: 1, flexDirection: 'row' }}>
+                            <View style={{ flex: 1, flexDirection: 'row' }}>
 
-                        <View>
+                                <View>
 
-                            <Text style={{ fontSize: 12 }}>Project Name</Text>
+                                    <Text style={{ fontSize: 12 }}>Project Name</Text>
+                                </View>
+                                <View>
+
+                                    <Text style={{ fontSize: 12, fontWeight: 'bold' }}> : {data.project_name}</Text>
+                                </View>
+                                <View style={{ position: 'absolute', right: 0 }}>
+
+                                    <Text style={{ fontSize: 12, fontWeight: 'bold' }}>{data.project_create_date}</Text>
+                                </View>
+                            </View>
+                            <View style={{ flex: 1 }}>
+                                <Text style={{ fontSize: 12 }}>Total Task</Text>
+                            </View>
                         </View>
-                        <View>
+                    </TouchableWithoutFeedback>
 
-                            <Text style={{ fontSize: 12, fontWeight: 'bold' }}> : {data.project_name}</Text>
-                        </View>
-                        <View style={{ position: 'absolute', right: 0 }}>
-
-                            <Text style={{ fontSize: 12, fontWeight: 'bold' }}>{data.project_create_date}</Text>
-                        </View>
-                    </View>
-                    <View style={{ flex: 1 }}>
-                        <Text style={{ fontSize: 12 }}>Total Task</Text>
-                    </View>
                     <View style={{ flex: 1 }}>
                         <Text style={{ fontSize: 12 }}>Contibutor :</Text>
                         <View style={{ flex: 1, flexDirection: 'row' }}>
+                            {/* <View style={{ flex: 1 }}> */}
+                            <View style={{ flex: 1, flexDirection: 'row' }}>
 
-                            <UserAvatar size="25" name="Avishay Bar" />
-                            <UserAvatar size="25" name="Avishay Bar" />
-                            <UserAvatar size="25" name="Avishay Bar" />
-                            <UserAvatar size="25" name="Avishay Bar" />
-                            <UserAvatar size="25" name="Avishay Bar" />
-                            <UserAvatar size="25" name="4" />
-                            <TouchableWithoutFeedback onPress={()=>{console.log("aaa")}}>
+                                <UserAvatar size="25" name="Avishay Bar" />
+                                {/* </View> */}
+                                <UserAvatar size="25" name="Avishay Bar" />
+                                <UserAvatar size="25" name="Avishay Bar" />
+                                <UserAvatar size="25" name="Avishay Bar" />
+                            </View>
+                            <TouchableWithoutFeedback onPress={() => { console.log("aaa") }}>
 
-                                <View style={{ justifyContent: 'center', position: 'absolute', right: 0, borderRadius: 10, height: 25, width: 100, backgroundColor: '#F0F0F0', alignItems: 'center' }}>
+                                <View style={{ flex: 1,marginLeft:10,marginRight:15,justifyContent: 'center', borderRadius: 10, height: 25, width: 100, backgroundColor: '#F0F0F0', alignItems: 'center' }}>
+                                    <Text style={{ fontSize: 12 }}>See all </Text>
+                                </View>
+
+                            </TouchableWithoutFeedback>
+                            <TouchableWithoutFeedback onPress={() => { console.log("aaa") }}>
+
+                                <View style={{flex: 1, justifyContent: 'center', borderRadius: 10, height: 25, width: 100, backgroundColor: '#F0F0F0', alignItems: 'center' }}>
                                     <Text style={{ fontSize: 12 }}>4 Comment</Text>
                                 </View>
                             </TouchableWithoutFeedback>
