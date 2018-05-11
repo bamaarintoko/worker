@@ -15,7 +15,7 @@ class ScreenDetailProject extends Component {
     static navigationOptions = {
         header: null,
         tabBarIcon: ({tintColor}) => {
-            return <Text>New</Text>;
+            return <Text style={{fontSize:12}}>New</Text>;
         }
     }
     render() {
@@ -30,7 +30,7 @@ class ScreenDetailProject extends Component {
                     <ActionButton.Item buttonColor='#3498db' title="Add New Task" onPress={() => {this.props.navigation.navigate("ScreenTask")}}>
                         <Icon name="plus-square" style={styles.actionButtonIcon} />
                     </ActionButton.Item>
-                    <ActionButton.Item buttonColor='#1abc9c' title="Invite Contributor" onPress={() => { }}>
+                    <ActionButton.Item buttonColor='#1abc9c' title="Invite Contributor" onPress={() => {this.props.navigation.navigate("ScreenInvite")}}>
                         <Icon name="user-plus" style={styles.actionButtonIcon} />
                     </ActionButton.Item>
                 </ActionButton>

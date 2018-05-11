@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container } from 'native-base';
+import { Container , Text} from 'native-base';
 import Head from '../../Components/Head';
 
 function mapStateToProps(state) {
@@ -10,6 +10,12 @@ function mapStateToProps(state) {
 }
 
 class ScreenProgress extends Component {
+    static navigationOptions = {
+        header: null,
+        tabBarIcon: ({tintColor}) => {
+            return <Text style={{fontSize:7}}>Progress</Text>;
+        }
+    }
     render() {
         return (
             <Container>
