@@ -4,6 +4,7 @@ import {
     Platform,
     StyleSheet,
     Text,
+    Image,
     View, StatusBar
 } from 'react-native';
 import { actSplashLogin } from './action';
@@ -45,16 +46,15 @@ class ScreenSplash extends Component {
     render() {
         return (
             <View style={styles.container}>
-            <StatusBar backgroundColor="#4FC3F7"
-     barStyle="light-content"/>
-                <Text style={styles.welcome}>
-                    Welcome to React Native!
-                </Text>
-                <Text style={styles.instructions}>
-                    ScreenSplash
-                </Text>
-                <Text style={styles.instructions}>
-                </Text>
+                <StatusBar backgroundColor="#4FC3F7"
+                    barStyle="light-content" />
+                <View>
+                    <Image 
+                        style={{flex:1}}
+                        source={require('../../Assets/spalsh.png')}
+                        resizeMode={"contain"}
+                    />
+                </View>
             </View>
         );
     }
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#E3E3E3',
     },
     welcome: {
         fontSize: 20,

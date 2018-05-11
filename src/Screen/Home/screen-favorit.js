@@ -18,8 +18,8 @@ function mapStateToProps(state) {
 class ScreenFavorit extends Component {
     static navigationOptions = {
         header: null,
-        tabBarIcon: ({tintColor}) => {
-            return <Icon name="star" size={20} color={tintColor}/>;
+        tabBarIcon: ({ tintColor }) => {
+            return <Icon name="star" size={20} color={tintColor} />;
         }
     }
     render() {
@@ -32,7 +32,7 @@ class ScreenFavorit extends Component {
                     Welcome to React Native!
                 </Text>
                 <Text style={styles.instructions}>
-                ScreenFavorit
+                    ScreenFavorit
                 </Text>
                 <Text style={styles.instructions}>
                 </Text>
@@ -42,22 +42,22 @@ class ScreenFavorit extends Component {
 }
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#F5FCFF',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
     },
     welcome: {
-      fontSize: 20,
-      textAlign: 'center',
-      margin: 10,
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10,
     },
     instructions: {
-      textAlign: 'center',
-      color: '#333333',
-      marginBottom: 5,
+        textAlign: 'center',
+        color: '#333333',
+        marginBottom: 5,
     },
-  });
+});
 export default connect(
     mapStateToProps,
 )(ScreenFavorit);

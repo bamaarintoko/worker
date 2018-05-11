@@ -15,6 +15,12 @@ import ScreenProfil from '../Screen/Home/screen-profil'
 import ScreenSetting from '../Screen/Setting/screen-setting'
 import ScreenRegister from '../Screen/Register/screen-register'
 import ScreenDetailProject from '../Screen/DetailProject/screen-detail-project'
+import ScreenContributors from '../Screen/Contributtors/screen-contributors'
+import ScreenComment from '../Screen/Comment/screen-comment'
+import ScreenTask from '../Screen/Task/screen-task'
+import ScreenProgress from '../Screen/DetailProject/screen-progress'
+import ScreenTest from '../Screen/DetailProject/screen-test'
+import ScreenFinish from '../Screen/DetailProject/screen-finish'
 import Home from '../Screen/Home/home'
 
 import {connect} from "react-redux";
@@ -54,6 +60,38 @@ const MyApp = TabNavigator({
     },
 })
 
+const myTask = TabNavigator({
+    New:{
+        screen: ScreenDetailProject
+    },
+    Progress:{
+        screen:ScreenProgress
+    },
+    Test : {
+        screen:ScreenTest
+    },
+    Finish:{
+        screen:ScreenFinish
+    }
+}, {
+    tabBarPosition: 'bottom',
+    animationEnabled: false,
+    swipeEnabled:false,
+    tabBarOptions: {
+        lazy: true,
+        showIcon: true,
+        showLabel:false,
+        activeTintColor: '#03A9F4',
+        inactiveTintColor: 'gray',
+        labelStyle: {
+            color: '#424242'
+        },
+        style: {
+            backgroundColor: 'white',
+        },
+    },
+})
+
 // const sideBar = DrawerNavigator({
 //     Home: {screen: MyApp},
 
@@ -68,7 +106,10 @@ export const AppNavigator = StackNavigator({
     Splash: {screen: SplashScreen},
     Setting: {screen: ScreenSetting},
     Register: {screen: ScreenRegister},
-    DetailProject: {screen: ScreenDetailProject},
+    DetailProject: {screen: myTask},
+    ScreenContributors: {screen: ScreenContributors},
+    ScreenComment: {screen: ScreenComment},
+    ScreenTask: {screen: ScreenTask},
     Menu: {screen: MyApp},
 
 }, {

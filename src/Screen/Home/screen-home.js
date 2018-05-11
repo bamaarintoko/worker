@@ -85,7 +85,7 @@ class ScreenHome extends Component {
     }
     render() {
         return (
-            <Container style={{ backgroundColor: '#78909C' }}>
+            <Container style={{ backgroundColor: '#E3E3E3' }}>
                 <Head
                     body={"Home"}
                     rightPress_={() => this.props.navigation.navigate('Setting')}
@@ -102,7 +102,8 @@ class ScreenHome extends Component {
                     keyExtractor={(item, index) => '' + index}
                     renderItem={({ item, index }) => (
                         <View>
-                            <ProjectCard data={item} />
+                            <ProjectCard _comment={()=>this.props.navigation.navigate('ScreenComment')} _contributors={()=>this.props.navigation.navigate('ScreenContributors')} navigation_={()=>this.props.navigation.navigate("DetailProject")} data={item} />
+                            <ProjectCard _comment={()=>this.props.navigation.navigate('ScreenComment')} _contributors={()=>this.props.navigation.navigate('ScreenContributors')} navigation_={()=>this.props.navigation.navigate("DetailProject")} data={item} />
                         </View>
                     )}
                 />

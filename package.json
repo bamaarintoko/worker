@@ -14,6 +14,7 @@
 		"qs": "^6.5.1",
 		"react": "16.3.1",
 		"react-native": "0.55.3",
+		"react-native-action-button": "^2.8.4",
 		"react-native-awesome-alerts": "^1.0.7",
 		"react-native-loading-spinner-overlay": "^0.5.2",
 		"react-native-modal": "^6.0.0",
