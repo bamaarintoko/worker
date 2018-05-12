@@ -9,8 +9,10 @@ export function actLogin(params){
         //     .then((response)=>{
         //         console.log(response)
         //     })
+        // console.log(params)
         Api._POST('auth/login_developer',params)
         .then((response)=>{
+            console.log(response)
             dispatch({
                 type : LOGIN,
                 status_get : response.data.status,
@@ -29,6 +31,8 @@ export function actLogin(params){
         //     'http://service.mlskoding.com/api/auth/login_developer',params
         // ).then((response)=>{
         //     console.log(response)
+        // }).catch((error)=>{
+        //     console.log(error.message)
         // })
     }
 }

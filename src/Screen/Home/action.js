@@ -11,7 +11,7 @@ export function actAddProject(params) {
                     message : response.data.message,
                     data : response.data.result
                 })
-                console.log(response)
+                // console.log(response)
             }).catch((error) => {
                 dispath({
                     type : ADD_PROJECT,
@@ -27,7 +27,7 @@ export function actGetProject(params){
     return dispath =>{
         Api._POST('project/get',params)
             .then((response)=>{
-                console.log(response)
+                // console.log(response)
                 dispath({
                     type : GET_PROJECT,
                     status_get : response.data.status,

@@ -53,7 +53,7 @@ class ScreenHome extends Component {
             })
             this.props.dispatch({ type: GET_PROJECT_RESET })
         }
-        console.log("----->", this.props.redGetProject)
+        // console.log("----->", this.props.redGetProject)
     }
     onLoad = () => {
         this.setState((prevstate, props) => ({
@@ -103,7 +103,7 @@ class ScreenHome extends Component {
                     renderItem={({ item, index }) => (
                         <View>
                             <ProjectCard _comment={()=>this.props.navigation.navigate('ScreenComment')} _contributors={()=>this.props.navigation.navigate('ScreenContributors')} navigation_={()=>this.props.navigation.navigate("DetailProject")} data={item} />
-                            <ProjectCard _comment={()=>this.props.navigation.navigate('ScreenComment')} _contributors={()=>this.props.navigation.navigate('ScreenContributors')} navigation_={()=>this.props.navigation.navigate("DetailProject")} data={item} />
+                            {/* <ProjectCard _comment={()=>this.props.navigation.navigate('ScreenComment')} _contributors={()=>this.props.navigation.navigate('ScreenContributors')} navigation_={()=>this.props.navigation.navigate("DetailProject")} data={item} /> */}
                         </View>
                     )}
                 />
