@@ -5,13 +5,14 @@ import Head from '../../Components/Head';
 import { InputReg, InputArea } from '../../Components/Input';
 import { Btn } from '../../Components/Button';
 import { Radio } from '../../Components/Radio';
+import { actAddTask } from './action';
 var radio_props = [
     { label: 'Publish', value: 'publish' },
     { label: 'Draft', value: 'draft' }
 ];
 function mapStateToProps(state) {
     return {
-
+        redAuth : state.redAuth
     };
 }
 
@@ -30,6 +31,10 @@ class ScreenTask extends Component {
             alert: false
         }
     }
+    componentDidMount() {
+        console.log(this.props.navigation.state.params.project_id)
+    }
+    
     _onChangeText = (key) => {
         return (e) => {
             var state = {};
@@ -40,7 +45,14 @@ class ScreenTask extends Component {
     _onSave = () => {
 
         return () => {
-            console.log("save")
+            let params = {
+                project_id : this.props.navigation.state.params.project_id,
+                task_name : this.state.value_project_nama,
+                task_desc : this.state.value_project_desc,
+                task_pick_by : this.props.redAuth.data.developer_id
+            }
+            console.log("save", params)
+            this.props.dispatch(actAddTask(params))
             // let params = {
             //     project_name: this.state.value_project_nama,
             //     project_desc: this.state.value_project_desc,
@@ -68,11 +80,8 @@ class ScreenTask extends Component {
                         value={this.state.value_project_desc}
                         onChangeText={this._onChangeText("value_project_desc")}
                         rowSpan={8}
-                        placeholder={"Deskripsi Task"}
+                        placeholder={"Description Task"}
                     />
-                    <Radio
-                        onPress={(v) => this.setState({ value_project_status: v })}
-                        radio_props={radio_props} />
                     <Btn
                         onPress={this._onSave()}
                         text={"Simpan Task"} />

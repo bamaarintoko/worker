@@ -107,7 +107,7 @@ export const AppNavigator = StackNavigator({
     Splash: {screen: SplashScreen},
     Setting: {screen: ScreenSetting},
     Register: {screen: ScreenRegister},
-    DetailProject: {screen: myTask},
+    DetailProject: {screen: ScreenDetailProject},
     ScreenContributors: {screen: ScreenContributors},
     ScreenComment: {screen: ScreenComment},
     ScreenTask: {screen: ScreenTask},

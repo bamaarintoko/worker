@@ -17,7 +17,7 @@ function mapStateToProps(state) {
 import Head from '../../Components/Head'
 import { actGetProject } from './action';
 import UserAvatar from 'react-native-user-avatar'
-import { normalize } from '../../Utils/func';
+import { normalize, normalizeFont } from '../../Utils/func';
 import { GET_PROJECT_RESET } from '../../Utils/Constant';
 import { ProjectCard } from '../../Components/ProjectCard';
 import Api from '../../Utils/Api';
@@ -91,6 +91,7 @@ class ScreenHome extends Component {
                     rightPress_={() => this.props.navigation.navigate('Setting')}
                     rightIcon={"cog"}
                 />
+                
                 <FlatList
                     onRefresh={() => {
                         this.onRefresh()
@@ -102,7 +103,7 @@ class ScreenHome extends Component {
                     keyExtractor={(item, index) => '' + index}
                     renderItem={({ item, index }) => (
                         <View>
-                            <ProjectCard _comment={()=>this.props.navigation.navigate('ScreenComment')} _contributors={()=>this.props.navigation.navigate('ScreenContributors')} navigation_={()=>this.props.navigation.navigate("DetailProject")} data={item} />
+                            <ProjectCard _comment={() => this.props.navigation.navigate('ScreenComment')} _contributors={() => this.props.navigation.navigate('ScreenContributors')} navigation_={() => this.props.navigation.navigate("DetailProject",{project_id:item.project_id})} data={item} />
                             {/* <ProjectCard _comment={()=>this.props.navigation.navigate('ScreenComment')} _contributors={()=>this.props.navigation.navigate('ScreenContributors')} navigation_={()=>this.props.navigation.navigate("DetailProject")} data={item} /> */}
                         </View>
                     )}
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: '#333333',
         marginBottom: 5,
-    },
+    }
 });
 export default connect(
     mapStateToProps,

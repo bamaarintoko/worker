@@ -119,7 +119,6 @@ class ScreenAdd extends Component {
         }
     }
     render() {
-
         return (
             <Container>
                 <StatusBarAlert
