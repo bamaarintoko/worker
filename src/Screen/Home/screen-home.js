@@ -56,22 +56,26 @@ class ScreenHome extends Component {
         // console.log("----->", this.props.redGetProject)
     }
     onLoad = () => {
-        this.setState((prevstate, props) => ({
-            page: prevstate.page + 10
-        }))
-        let params = {
-            project_create_by: this.props.redAuth.data.developer_id,
-            data_id: this.props.redAuth.data.developer_id
+        return () => {
+
+            this.setState((prevstate, props) => ({
+                page: prevstate.page + 10
+            }))
+            let params = {
+                project_create_by: this.props.redAuth.data.developer_id,
+                data_id: this.props.redAuth.data.developer_id
+            }
+            Api._POST('project/get', params)
+                .then((response) => {
+                    console.log(response)
+                    if (response.data.status) {
+                        var joined = this.state.data.concat(response.data.result);
+                        this.setState({
+                            data: joined
+                        })
+                    }
+                })
         }
-        Api._POST('project/get', params)
-            .then((response) => {
-                if (response.data.status) {
-                    var joined = this.state.data.concat(response.data.result);
-                    this.setState({
-                        data: joined
-                    })
-                }
-            })
 
         // this.props.dispatch(actGetProject(params))
     }
@@ -84,6 +88,7 @@ class ScreenHome extends Component {
         this.props.dispatch(actGetProject(params))
     }
     render() {
+        console.log(this.state.data)
         return (
             <Container style={{ backgroundColor: '#E3E3E3' }}>
                 <Head
@@ -91,23 +96,29 @@ class ScreenHome extends Component {
                     rightPress_={() => this.props.navigation.navigate('Setting')}
                     rightIcon={"cog"}
                 />
-                
-                <FlatList
-                    onRefresh={() => {
-                        this.onRefresh()
-                    }}
-                    data={this.state.data}
-                    refreshing={this.state.isRefresh}
-                    onEndReached={this.onLoad}
-                    onEndReachedThreshold={1}
-                    keyExtractor={(item, index) => '' + index}
-                    renderItem={({ item, index }) => (
-                        <View>
-                            <ProjectCard _comment={() => this.props.navigation.navigate('ScreenComment')} _contributors={() => this.props.navigation.navigate('ScreenContributors')} navigation_={() => this.props.navigation.navigate("DetailProject",{project_id:item.project_id})} data={item} />
-                            {/* <ProjectCard _comment={()=>this.props.navigation.navigate('ScreenComment')} _contributors={()=>this.props.navigation.navigate('ScreenContributors')} navigation_={()=>this.props.navigation.navigate("DetailProject")} data={item} /> */}
-                        </View>
-                    )}
-                />
+                {
+                    this.state.data.length > 0
+                        ?
+                        <FlatList
+                            onRefresh={() => {
+                                this.onRefresh()
+                            }}
+                            data={this.state.data}
+                            refreshing={this.state.isRefresh}
+                            // onEndReached={this.onLoad()}
+                            // onEndReachedThreshold={1}
+                            keyExtractor={(item, index) => '' + index}
+                            renderItem={({ item, index }) => (
+                                <View>
+                                    <ProjectCard _comment={() => this.props.navigation.navigate('ScreenComment')} _contributors={() => this.props.navigation.navigate('ScreenContributors')} navigation_={() => this.props.navigation.navigate("DetailProject", { project_id: item.project_id })} data={item} />
+                                    {/* <ProjectCard _comment={()=>this.props.navigation.navigate('ScreenComment')} _contributors={()=>this.props.navigation.navigate('ScreenContributors')} navigation_={()=>this.props.navigation.navigate("DetailProject")} data={item} /> */}
+                                </View>
+                            )}
+                        />
+                        :
+                        <Content><View style={styles.container}><Text style={styles.welcome}>No data</Text></View></Content>
+                }
+
                 {/* <Content>
                     {
                         this.state.data.map((x, i) => {
@@ -139,7 +150,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#E0E0E0',
     },
     welcome: {
         fontSize: 20,

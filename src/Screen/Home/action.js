@@ -11,6 +11,7 @@ export function actAddProject(params) {
                     message : response.data.message,
                     data : response.data.result
                 })
+                dispath(actGetProject({data_id:params.project_create_by}))
                 // console.log(response)
             }).catch((error) => {
                 dispath({
@@ -34,6 +35,7 @@ export function actGetProject(params){
                     message: response.data.message,
                     data : response.data.result
                 })
+                
             }).catch((error)=>{
                 dispath({
                     type : GET_PROJECT,

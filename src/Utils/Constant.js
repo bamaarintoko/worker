@@ -9,3 +9,12 @@ export const GET_PROJECT_RESET = "GET_PROJECT_RESET";
 
 export const ADD_TASK = "ADD_TASK";
 export const ADD_TASK_RESET = "ADD_TASK_RESET";
+
+export const GET_TASK = "GET_TASK";
+export const GET_TASK_RESET = "GET_TASK_RESET";
+
+export const UPDATE_PROGRESS_TASK = "UPDATE_PROGRESS_TASK";
+export const UPDATE_PROGRESS_TASK_RESET = "UPDATEPROGRESS_TASK";
+
+export const GET_INVITE     = "GET_INVITE";
+export const GET_INVITE_RESET = "GET_INVOTE_RESET";
