@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import { nav } from './dataReducers'
-import { redAuth } from './authReducers'
+import { redAuth, redRegister } from './authReducers'
 import { redAddProject, redGetProject } from './projectReducers'
 import { redAddTaskReducer, redGetTaskReducer, redUpdateProgressTask, redGetInvite } from './taskReducers'
 const rootReducer = combineReducers({
@@ -11,6 +11,7 @@ const rootReducer = combineReducers({
     redGetTaskReducer: redGetTaskReducer,
     redUpdateProgressTask: redUpdateProgressTask,
     redGetInvite: redGetInvite,
+    redRegister: redRegister,
     nav: nav
 })
 

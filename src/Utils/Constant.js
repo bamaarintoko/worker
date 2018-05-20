@@ -18,3 +18,6 @@ export const UPDATE_PROGRESS_TASK_RESET = "UPDATEPROGRESS_TASK";
 
 export const GET_INVITE     = "GET_INVITE";
 export const GET_INVITE_RESET = "GET_INVOTE_RESET";
+
+export const REGISTER   = "REGISTER"
+export const REGISTER_RESET = "REGISTER_RESET"

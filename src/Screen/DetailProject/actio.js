@@ -33,7 +33,7 @@ export function actPickTask(params) {
                     message: response.data.message,
                     data : response.data.result
                 })
-                dispatch(actGetTask({project_id:params.project_id}))
+                dispatch(actGetTask({project_id:params.project_id,data_id:params.data_id}))
                 // console.log(response)
             }).catch((error) => {
                 dispatch({
@@ -53,7 +53,7 @@ export function actPickTest(params){
         Api._POST('task/test',params)
             .then((response)=>{
                 console.log(response)
-                dispatch(actGetTask({project_id:params.project_id}))
+                dispatch(actGetTask({project_id:params.project_id,data_id:params.data_id}))
             }).catch((error)=>{
                 console.log(error.message)
             })

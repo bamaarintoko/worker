@@ -87,7 +87,7 @@ class ScreenInvite extends Component {
                 <Head leftIcon={"arrow-left"}
                     leftPress={() => this.props.navigation.goBack()} body={"Invite"} />
                 <Content>
-                    <Autocomplete
+                    {/* <Autocomplete
                         data={data}
                         defaultValue={query}
                         onChangeText={text => this.setState({ query: text })}
@@ -96,7 +96,7 @@ class ScreenInvite extends Component {
                                 <Text>{item}</Text>
                             </TouchableOpacity>
                         )}
-                    />
+                    /> */}
                     <InputReg value={this.state.value_email} placeholder={"Masukkan email"} onChangeText={(e) => this.setState({ value_email: e })} />
                     <Btn onPress={this.onInvite()} text={"Invite"} />
                 </Content>

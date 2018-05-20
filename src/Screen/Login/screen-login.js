@@ -4,14 +4,14 @@ import {
     Platform,
     StyleSheet,
     Text,
-    View, TouchableWithoutFeedback, StatusBar
+    View, TouchableWithoutFeedback, StatusBar, Image
 } from 'react-native';
 import { Container, Header, Content, Item, Input, Button, Badge } from 'native-base';
 import { InputReg } from '../../Components/Input';
 import { Btn } from '../../Components/Button';
 import { actLogin } from './action';
 import md5 from 'crypto-js/md5';
-import { secure, normalizeFont } from '../../Utils/func';
+import { secure, normalizeFont, normalize } from '../../Utils/func';
 import { LOGIN_RESET } from '../../Utils/Constant';
 
 
@@ -66,36 +66,71 @@ class ScreenLogin extends Component {
         return (
             <Container>
                 <StatusBar backgroundColor="#4FC3F7"
-     barStyle="light-content"/>
-                <Content>
-                    <InputReg autoCapitalize={"none"} onChangeText={this.onChange("email")} placeholder={"Email"} />
-                    <InputReg autoCapitalize={"none"} secureTextEntry={true} onChangeText={this.onChange("password")} placeholder={"Password"} />
-                    {
-                        this.state.isLoginError &&
-                        <View style={styles.error_message}>
-                            <Text style={{ color: 'white' }}>{this.state.message}</Text>
+                    barStyle="light-content" />
+                {/* <Content> */}
+                <View style={{ flex: 1, flexDirection: "column" }}>
+                    <View style={{ margin: 10, flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <View style={{
+                            flex: 2,
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                        }}>
+                            <Image
+                                style={{ width: normalize(130 * .9) }}
+                                source={require('../../Assets/logo.png')}
+                                resizeMode={"contain"}
+                            />
+                            
                         </View>
-                    }
+                        <View style={{
+                            flex: 2,
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                        }}>
+                            <Image
+                            style={{ height: 50 }}
+                            source={require('../../Assets/logotext.png')}
+                            resizeMode={"contain"}
+                        />
+                            
+                        </View>
 
-                    <Btn onPress={() => this.login()} text={"Login"} />
-                    <View style={{ flexDirection: 'row', alignItems: 'center', height: 40, marginLeft:10,marginRight:10 }}>
-                        <TouchableWithoutFeedback
-                            onPress={() => this.props.navigation.navigate('Register')}>
-                            <View style={{ flex: 1, height: 40, justifyContent: 'center' }}>
-                                <Text style={{ color: '#000000', fontSize: normalizeFont(4 * .5) }}>Create
-                                                Account</Text>
-
-                            </View>
-                        </TouchableWithoutFeedback>
-                        <TouchableWithoutFeedback style={{ paddingTop: 10, paddingBottom: 10 }}
-                            onPress={() => console.log("asu")}>
-                            <View style={{ flex: 1, alignItems: 'flex-end', height: 40, justifyContent: 'center' }}>
-                                <Text style={{ color: '#000000', fontSize: normalizeFont(4 * .5) }}>Forgot
-                                                Password?</Text>
-                            </View>
-                        </TouchableWithoutFeedback>
+                        
                     </View>
-                </Content>
+                    <View style={{ flex: 1 }}>
+
+                        <InputReg autoCapitalize={"none"} onChangeText={this.onChange("email")} placeholder={"Email"} />
+                        <InputReg autoCapitalize={"none"} secureTextEntry={true} onChangeText={this.onChange("password")} placeholder={"Password"} />
+                        {
+                            this.state.isLoginError &&
+                            <View style={styles.error_message}>
+                                <Text style={{ color: 'white' }}>{this.state.message}</Text>
+                            </View>
+                        }
+
+                        <Btn onPress={() => this.login()} text={"Login"} />
+                        <View style={{ flexDirection: 'row', alignItems: 'center', height: 40, marginLeft: 10, marginRight: 10 }}>
+                            <TouchableWithoutFeedback
+                                onPress={() => this.props.navigation.navigate('Register')}>
+                                <View style={{ flex: 1, height: 40, justifyContent: 'center' }}>
+                                    <Text style={{ color: '#000000', fontSize: normalizeFont(4 * .5) }}>Create
+                        Account</Text>
+
+                                </View>
+                            </TouchableWithoutFeedback>
+                            <TouchableWithoutFeedback style={{ paddingTop: 10, paddingBottom: 10 }}
+                                onPress={() => console.log("asu")}>
+                                <View style={{ flex: 1, alignItems: 'flex-end', height: 40, justifyContent: 'center' }}>
+                                    <Text style={{ color: '#000000', fontSize: normalizeFont(4 * .5) }}>Forgot
+                        Password?</Text>
+                                </View>
+                            </TouchableWithoutFeedback>
+                        </View>
+                    </View>
+                </View>
+
+
+                {/* </Content> */}
             </Container>
         );
     }

@@ -35,6 +35,7 @@ class ScreenDetailProject extends Component {
             progress: [],
             test: [],
             done: [],
+            cred: [],
             task_id: "",
             starCount: 1
 
@@ -46,7 +47,7 @@ class ScreenDetailProject extends Component {
         });
     }
     componentDidMount() {
-        let params = { project_id: this.props.navigation.state.params.project_id }
+        let params = { project_id: this.props.navigation.state.params.project_id, data_id: this.props.redAuth.data.developer_id }
         this.props.dispatch(actGetTask(params))
         console.log(this.props.navigation.state.params.project_id);
     }
@@ -57,7 +58,8 @@ class ScreenDetailProject extends Component {
                 to_do: this.props.redGetTaskReducer.data.to_do,
                 progress: this.props.redGetTaskReducer.data.progress,
                 test: this.props.redGetTaskReducer.data.test,
-                finish: this.props.redGetTaskReducer.data.finish
+                finish: this.props.redGetTaskReducer.data.finish,
+                cred: this.props.redGetTaskReducer.data.cred
             })
             console.log(this.props.redGetTaskReducer)
             this.props.dispatch({ type: GET_TASK_RESET })
@@ -84,6 +86,7 @@ class ScreenDetailProject extends Component {
             let params = {
                 task_id: this.state.task_id,
                 developer_id: this.props.redAuth.data.developer_id,
+                data_id: this.props.redAuth.data.developer_id,
                 project_id: this.props.navigation.state.params.project_id
             }
             this.props.dispatch(actPickTask(params))
@@ -96,8 +99,9 @@ class ScreenDetailProject extends Component {
             let params = {
                 task_id: this.state.task_id,
                 developer_id: this.props.redAuth.data.developer_id,
+                data_id: this.props.redAuth.data.developer_id,
                 project_id: this.props.navigation.state.params.project_id,
-                starCount : this.state.starCount
+                starCount: this.state.starCount
             }
             this.props.dispatch(actPickTest(params))
             this.setState({ isModalTestVisible: !this.state.isModalTestVisible, task_id: "" });
@@ -106,6 +110,7 @@ class ScreenDetailProject extends Component {
     }
 
     render() {
+        console.log(this.state.cred)
         return (
             <Container>
                 <Head leftIcon={"arrow-left"}
@@ -130,7 +135,7 @@ class ScreenDetailProject extends Component {
                     <View style={styles.modalContent}>
 
                         <Text>Ready for test?</Text>
-                        <Text style={{fontSize:12, marginTop:5}}>Rate this task difficulty</Text>
+                        <Text style={{ fontSize: 12, marginTop: 5 }}>Rate this task difficulty</Text>
                         <View>
                             <StarRating
                                 disabled={false}
@@ -141,7 +146,7 @@ class ScreenDetailProject extends Component {
                                 selectedStar={(rating) => this.onStarRatingPress(rating)}
                             />
                         </View>
-                        <View style={{ flexDirection: "row", marginTop:5 }}>
+                        <View style={{ flexDirection: "row", marginTop: 5 }}>
                             <Button onPress={this._togglePickTest()} full info>
                                 <Text>Ready To Test!</Text>
                             </Button>
@@ -227,17 +232,26 @@ class ScreenDetailProject extends Component {
                         })
                     }
                 </Content>
-                <ActionButton size={40} buttonColor="rgba(231,76,60,1)">
-                    <ActionButton.Item buttonColor='#3498db' title="Project Description" onPress={() => { }}>
-                        <Icon name="info-circle" style={styles.actionButtonIcon} />
-                    </ActionButton.Item>
-                    <ActionButton.Item buttonColor='#3498db' title="Add New Task" onPress={() => { this.props.navigation.navigate("ScreenTask", { project_id: this.props.navigation.state.params.project_id }) }}>
-                        <Icon name="plus-square" style={styles.actionButtonIcon} />
-                    </ActionButton.Item>
-                    <ActionButton.Item buttonColor='#1abc9c' title="Invite Contributor" onPress={() => { this.props.navigation.navigate("ScreenInvite") }}>
-                        <Icon name="user-plus" style={styles.actionButtonIcon} />
-                    </ActionButton.Item>
-                </ActionButton>
+                {
+                    this.state.cred.role === "edit"
+                        ?
+                        <View>
+
+                        </View>
+                        :
+                        <ActionButton size={40} buttonColor="rgba(231,76,60,1)">
+                            <ActionButton.Item buttonColor='#3498db' title="Project Description" onPress={() => { }}>
+                                <Icon name="info-circle" style={styles.actionButtonIcon} />
+                            </ActionButton.Item>
+                            <ActionButton.Item buttonColor='#3498db' title="Add New Task" onPress={() => { this.props.navigation.navigate("ScreenTask", { project_id: this.props.navigation.state.params.project_id }) }}>
+                                <Icon name="plus-square" style={styles.actionButtonIcon} />
+                            </ActionButton.Item>
+                            <ActionButton.Item buttonColor='#1abc9c' title="Invite Contributor" onPress={() => { this.props.navigation.navigate("ScreenInvite") }}>
+                                <Icon name="user-plus" style={styles.actionButtonIcon} />
+                            </ActionButton.Item>
+                        </ActionButton>
+                }
+
             </Container>
         );
     }
