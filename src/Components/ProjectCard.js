@@ -7,14 +7,11 @@ import LinearGradient from "react-native-linear-gradient";
 export const ProjectCard = ({ data, navigation_, _contributors, _comment }) => {
     // console.log(data)
     return (
-        <LinearGradient colors={['#4FC3F7', '#1E88E5', '#1A237E']} style={{flex:1,margin:5}}>
-        <View style={{ height: 130, paddingLeft: 2, paddingRight: 2, paddingTop:2, paddingBottom:2 }}>
+        <View style={{ height: 130, paddingLeft: 5, paddingRight: 5, paddingTop:5, paddingBottom:5 }}>
             <View style={{flex:1, borderColor: "#9E9E9E", overflow: 'hidden', backgroundColor: '#FFFFFF', height: 115, width: '100%', marginRight: 50, borderRadius:5 }}>
                 <TouchableWithoutFeedback onPress={navigation_}>
                     <View style={{paddingLeft: 10, paddingRight: 10, paddingTop: 2, flex: 2, flexDirection: 'column' }}>
-
-                        <View style={{ flex:1, flex: 1, flexDirection: 'column' }}>
-
+                        <View style={{  flex: 1, flexDirection: 'column' }}>
                             <View>
                                 <Text style={{ fontSize: 12, fontWeight: 'bold' }}>{data.project_name}</Text>
                             </View>
@@ -27,7 +24,7 @@ export const ProjectCard = ({ data, navigation_, _contributors, _comment }) => {
                         </View>
                     </View>
                 </TouchableWithoutFeedback>
-                <View style={{marginTop:20, flex:1, paddingLeft: 10, paddingRight: 10, paddingTop: 4, flex: 1, flexDirection: 'row', marginTop: 5, borderTopColor: '#E0E0E0', borderTopWidth: 1 }}>
+                <View style={{paddingLeft: 10, paddingRight: 10, flex: 1, flexDirection: 'row', borderTopColor: '#E0E0E0', borderTopWidth: 1, justifyContent:'center', alignItems:'center' }}>
                     <TouchableWithoutFeedback onPress={_contributors}>
                         <View style={{ flex: 1, justifyContent: 'center', borderRadius: 10, height: 25, width: 100, paddingRight: 5, backgroundColor: '#F0F0F0', alignItems: 'center' }}>
                             <Text style={{ fontSize: 12 }}>4 Contributors</Text>
@@ -44,6 +41,5 @@ export const ProjectCard = ({ data, navigation_, _contributors, _comment }) => {
 
             </View>
         </View>
-        </LinearGradient>
     )
 }
