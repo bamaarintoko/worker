@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import LinearGradient from 'react-native-linear-gradient';
 import {
     Platform,
     StyleSheet,
@@ -67,6 +68,9 @@ class ScreenLogin extends Component {
             <Container>
                 <StatusBar backgroundColor="#4FC3F7"
                     barStyle="light-content" />
+                <LinearGradient colors={['#4FC3F7', '#1E88E5', '#1A237E']} style={styles.linearGradient}>
+
+
                 {/* <Content> */}
                 <View style={{ flex: 1, flexDirection: "column" }}>
                     <View style={{ margin: 10, flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -80,7 +84,7 @@ class ScreenLogin extends Component {
                                 source={require('../../Assets/logo.png')}
                                 resizeMode={"contain"}
                             />
-                            
+
                         </View>
                         <View style={{
                             flex: 2,
@@ -92,10 +96,10 @@ class ScreenLogin extends Component {
                             source={require('../../Assets/logotext.png')}
                             resizeMode={"contain"}
                         />
-                            
+
                         </View>
 
-                        
+
                     </View>
                     <View style={{ flex: 1 }}>
 
@@ -125,12 +129,14 @@ class ScreenLogin extends Component {
                         Password?</Text>
                                 </View>
                             </TouchableWithoutFeedback>
+
                         </View>
                     </View>
                 </View>
 
 
                 {/* </Content> */}
+                </LinearGradient>
             </Container>
         );
     }
@@ -161,6 +167,18 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: '#333333',
         marginBottom: 5,
+    },linearGradient: {
+        flex: 1,
+        paddingLeft: 15,
+        paddingRight: 15,
+    },
+    buttonText: {
+        fontSize: 18,
+        fontFamily: 'Gill Sans',
+        textAlign: 'center',
+        margin: 10,
+        color: '#ffffff',
+        backgroundColor: 'transparent',
     },
 });
 function mapStateToProps(state) {

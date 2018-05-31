@@ -2,6 +2,7 @@ import Api from "../../Utils/Api";
 import { GET_TASK, UPDATE_PROGRESS_TASK } from "../../Utils/Constant";
 
 export function actGetTask(params) {
+    console.log("getTask",params)
     return dispatch => {
         Api._POST('task/get', params)
             .then((response) => {

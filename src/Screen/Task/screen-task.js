@@ -65,7 +65,7 @@ class ScreenTask extends Component {
     
     componentDidMount() {
 
-        console.log(this.props.navigation.state.params.project_id)
+        console.log("--->",this.props.redAuth)
     }
     
     _onChangeText = (key) => {
@@ -82,6 +82,7 @@ class ScreenTask extends Component {
                 project_id : this.props.navigation.state.params.project_id,
                 task_name : this.state.value_project_nama,
                 task_desc : this.state.value_project_desc,
+                data_id : this.props.redAuth.data.developer_id,
                 task_pick_by : 0
             }
             console.log("save", params)

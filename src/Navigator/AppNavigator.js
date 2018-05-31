@@ -75,6 +75,7 @@ const myTask = TabNavigator({
         screen:ScreenFinish
     }
 }, {
+
     tabBarPosition: 'bottom',
     animationEnabled: false,
     swipeEnabled:false,
@@ -116,6 +117,7 @@ export const AppNavigator = StackNavigator({
 
 }, {
     headerMode: 'none',
+
     navigationOptions: {
         gesturesEnabled: true
     }

@@ -3,13 +3,15 @@ import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import UserAvatar from 'react-native-user-avatar'
 import { normalize, normalizeFont } from '../Utils/func';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import LinearGradient from "react-native-linear-gradient";
 export const ProjectCard = ({ data, navigation_, _contributors, _comment }) => {
     // console.log(data)
     return (
-        <View style={{ height: 130, paddingLeft: 10, paddingRight: 10 }}>
-            <View style={{flex:1, borderColor: "#9E9E9E", overflow: 'hidden', backgroundColor: '#FFFFFF', height: 115, width: '100%', top: 10, marginRight: 50 }}>
+        <LinearGradient colors={['#4FC3F7', '#1E88E5', '#1A237E']} style={{flex:1,margin:5}}>
+        <View style={{ height: 130, paddingLeft: 2, paddingRight: 2, paddingTop:2, paddingBottom:2 }}>
+            <View style={{flex:1, borderColor: "#9E9E9E", overflow: 'hidden', backgroundColor: '#FFFFFF', height: 115, width: '100%', marginRight: 50, borderRadius:5 }}>
                 <TouchableWithoutFeedback onPress={navigation_}>
-                    <View style={{paddingLeft: 10, paddingRight: 10, paddingTop: 5, flex: 2, flexDirection: 'column' }}>
+                    <View style={{paddingLeft: 10, paddingRight: 10, paddingTop: 2, flex: 2, flexDirection: 'column' }}>
 
                         <View style={{ flex:1, flex: 1, flexDirection: 'column' }}>
 
@@ -42,5 +44,6 @@ export const ProjectCard = ({ data, navigation_, _contributors, _comment }) => {
 
             </View>
         </View>
+        </LinearGradient>
     )
 }
