@@ -27,7 +27,7 @@ export const ProjectCard = ({ data, navigation_, _contributors, _comment }) => {
                 <View style={{paddingLeft: 10, paddingRight: 10, flex: 1, flexDirection: 'row', borderTopColor: '#E0E0E0', borderTopWidth: 1, justifyContent:'center', alignItems:'center' }}>
                     <TouchableWithoutFeedback onPress={_contributors}>
                         <View style={{ flex: 1, justifyContent: 'center', borderRadius: 10, height: 25, width: 100, paddingRight: 5, backgroundColor: '#F0F0F0', alignItems: 'center' }}>
-                            <Text style={{ fontSize: 12 }}>4 Contributors</Text>
+                            <Text style={{ fontSize: 12 }}>6 Contributors</Text>
                         </View>
                     </TouchableWithoutFeedback>
                     <TouchableWithoutFeedback onPress={_comment}>
