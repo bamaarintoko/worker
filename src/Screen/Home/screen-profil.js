@@ -9,6 +9,7 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Container } from 'native-base';
 import Head from '../../Components/Head';
+import QRCode from 'react-native-qrcode';
 function mapStateToProps(state) {
     return {
 
@@ -28,14 +29,11 @@ class ScreenProfil extends Component {
                 <Head
                     body={"Profil"}
                 />
-                <Text style={styles.welcome}>
-                    Welcome to React Native!
-                </Text>
-                <Text style={styles.instructions}>
-                ScreenProfil
-                </Text>
-                <Text style={styles.instructions}>
-                </Text>
+                <QRCode
+                    value={"yosafatbama.arintoko@gmail.com"}
+                    size={100}
+                    bgColor='black'
+                    fgColor='white'/>
             </Container>
         );
     }
