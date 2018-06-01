@@ -13,7 +13,9 @@ import QRCode from 'react-native-qrcode';
 import LinearGradient from "react-native-linear-gradient";
 
 function mapStateToProps(state) {
-    return {};
+    return {
+        redAuth: state.redAuth,
+    };
 }
 
 class ScreenProfil extends Component {
@@ -23,6 +25,16 @@ class ScreenProfil extends Component {
             return <Icon name="user-circle-o" size={20} color={tintColor}/>;
         }
     }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log(this.props.redAuth)
+    }
+
+    componentDidMount() {
+        console.log(this.props.redAuth.data.developer_email)
+
+    }
+
 
     render() {
         return (
@@ -58,7 +70,7 @@ class ScreenProfil extends Component {
                     }}>
                         <View style={{alignItems:'center'}}>
                             <QRCode
-                                value={"yosafatbama.arintoko@gmail.com"}
+                                value={this.props.redAuth.data.developer_email}
                                 size={150}
                                 bgColor='black'
                                 fgColor='white'/>
@@ -67,8 +79,8 @@ class ScreenProfil extends Component {
                     <View style={{position: 'absolute', top: 60, left: 0, right: 0, bottom: 0, alignItems: 'center'}}>
                         <Thumbnail large
                                    source={{uri: 'https://www.mills.edu/uniquely-mills/students-faculty/student-profiles/images/student-profile-gabriela-mills-college.jpg'}}/>
-                        <Text style={{fontSize: 16, fontWeight: 'bold', color:'#2196F3'}}>
-                            Maria Elliot
+                        <Text style={{fontSize: 16, color:'#2196F3'}}>
+                            {this.props.redAuth.data.developer_name}
                         </Text>
                     </View>
 

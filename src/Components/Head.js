@@ -12,7 +12,7 @@ import StatusBarAlert from "react-native-statusbar-alert"
 
 const Head = ({message_, backgroundColor, leftPress, bodyPress, rightPress, leftIcon, body, rightIcon, rightPress_, visible, onPress_}) => {
     // console.log("--->", typeof body)
-    console.log('StatusBar.translucent:', StatusBar);
+    // console.log('StatusBar.translucent:', StatusBar);
     return (
         <View style={{height: 70}}>
             <StatusBar  translucent backgroundColor="rgba(255, 255, 255, 0)"/>
