@@ -29,8 +29,8 @@ class ScreenContributors extends Component {
                                 marginLeft: 25, flex: 1,
                                 justifyContent: 'center',
                             }}>
-                                <Text>
-                                    aaa
+                                <Text style={{fontSize:12}}>
+                                    Sinatrio Happy Triaji
                                 </Text>
                                 <Text style={{fontSize:12}}>
                                     last seen :
@@ -54,8 +54,8 @@ class ScreenContributors extends Component {
                                 marginLeft: 25, flex: 1,
                                 justifyContent: 'center',
                             }}>
-                                <Text>
-                                    aaa
+                                <Text style={{fontSize:12}}>
+                                    Nur Kholis
                                 </Text>
                                 <Text style={{fontSize:12}}>
                                     last seen :

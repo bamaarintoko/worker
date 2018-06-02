@@ -60,7 +60,7 @@ class ScreenProfil extends Component {
 
                     <View style={{
                         flex: 1,
-                        height: 300,
+                        height: 400,
                         backgroundColor: 'rgba(255,255,255,0.5)',
                         borderRadius: 5,
                         marginTop: 100,
