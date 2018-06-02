@@ -121,21 +121,23 @@ class ScreenAdd extends Component {
     render() {
         return (
             <Container>
-                <StatusBarAlert
-                    message={"Tambah project berhasil. Tap to close"}
-                    visible={this.state.isAddSuccess}
-                    backgroundColor="#4FC3F7"
-                    onPress={this.toggleSuccess()}
-                    color="white" />
+
+
+                <Head
+                    body={"Add New Project"}
+                />
                 <StatusBarAlert
                     message={"Tambah project gagal. Tap to close"}
                     visible={this.state.isAddFailed}
                     backgroundColor="#FF6F00"
                     onPress={this.togglFailed()}
                     color="white" />
-                <Head
-                    body={"Tambah"}
-                />
+                <StatusBarAlert
+                    message={"Tambah project berhasil. Tap to close"}
+                    visible={this.state.isAddSuccess}
+                    backgroundColor="#4FC3F7"
+                    onPress={this.toggleSuccess()}
+                    color="white" />
 
                 <Modal isVisible={this.state.isModalVisible}>
                     <View style={styles.modalContent}>
@@ -146,20 +148,20 @@ class ScreenAdd extends Component {
                     <InputReg
                         value={this.state.value_project_nama}
                         onChangeText={this._onChangeText("value_project_nama")}
-                        placeholder={"Nama project"}
+                        placeholder={"Project name"}
                     />
                     <InputArea
                         value={this.state.value_project_desc}
                         onChangeText={this._onChangeText("value_project_desc")}
                         rowSpan={8}
-                        placeholder={"Deskripsi Project"}
+                        placeholder={"Project description"}
                     />
                     <Radio
                         onPress={(v) => this.setState({ value_project_status: v })}
                         radio_props={radio_props} />
                     <Btn
                         onPress={this._onSave()}
-                        text={"Simpan Project"} />
+                        text={"Save Project"} />
 
                 </Content>
 
