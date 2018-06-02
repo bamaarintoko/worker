@@ -116,6 +116,9 @@ class ScreenTask extends Component {
     render() {
         return (
             <Container>
+
+                <Head leftIcon={"arrow-left"}
+                    leftPress={()=>this.props.navigation.goBack()} body={"Add Task"} />
                 <StatusBarAlert
                     message={"Add new task success. Tap to close"}
                     visible={this.state.isAddSuccess}
@@ -128,8 +131,6 @@ class ScreenTask extends Component {
                     backgroundColor="#FF6F00"
                     onPress={this.togglFailed()}
                     color="white" />
-                <Head leftIcon={"arrow-left"}
-                    leftPress={()=>this.props.navigation.goBack()} body={"Add Task"} />
                 <Content>
                     <InputReg
                         value={this.state.value_project_nama}
