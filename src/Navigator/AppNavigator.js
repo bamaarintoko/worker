@@ -22,6 +22,7 @@ import ScreenProgress from '../Screen/DetailProject/screen-progress'
 import ScreenTest from '../Screen/DetailProject/screen-test'
 import ScreenFinish from '../Screen/DetailProject/screen-finish'
 import ScreenInvite from '../Screen/InviteConstributors/screen-invite'
+import ScreenQrCode from '../Screen/InviteConstributors/screen-qr-code'
 import Home from '../Screen/Home/home'
 
 import {connect} from "react-redux";
@@ -113,6 +114,7 @@ export const AppNavigator = StackNavigator({
     ScreenComment: {screen: ScreenComment},
     ScreenTask: {screen: ScreenTask},
     ScreenInvite: {screen: ScreenInvite},
+    ScreenQrCode: {screen: ScreenQrCode},
     Menu: {screen: MyApp},
 
 }, {

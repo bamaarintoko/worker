@@ -11,6 +11,7 @@ import Api from '../../Utils/Api';
 import {actInvite} from './action';
 import {GET_INVITE, GET_INVITE_RESET} from '../../Utils/Constant';
 import {normalizeFont} from "../../Utils/func";
+import ScreenQrCode from "./screen-qr-code";
 
 function mapStateToProps(state) {
     return {
@@ -41,12 +42,7 @@ class ScreenInvite extends Component {
         }
     }
 
-    onSuccess(e) {
-        console.log(e)
-        // Linking
-        //     .openURL(e.data)
-        //     .catch(err => console.error('An error occured', err));
-    }
+
 
     componentDidMount() {
         let params = {
@@ -73,69 +69,31 @@ class ScreenInvite extends Component {
         //     })
         // }
     }
-
-    tes(params) {
-        // let params = {
-        //     keyword: query,
-        //     developer_id: this.props.redAuth.data.developer_id
-        // }
-
-    }
-
-    barcodeReceived(e) {
-        // Toast.show('Type: ' + e.type + '\nData: ' + e.data);
-        console.log(e)
-    }
-
-    _filterData(query) {
-        if (query === '') {
-            return [];
+    qrCode =()=>{
+        return ()=>{
+            this.props.navigation.navigate('ScreenQrCode')
         }
-        return this.state.data;
-        // return () => {
-        console.log(this.state.data)
-
-        // return ["aa","bb","cc",]
     }
 
     render() {
-        const query = this.state.query;
-        const data = this._filterData(query)
-        console.log(data_)
         return (
             <Container>
                 <Head leftIcon={"arrow-left"}
                       leftPress={() => this.props.navigation.goBack()} body={"Invite"}/>
                 <Content>
-                    {/* <Autocomplete
-                        data={data}
-                        defaultValue={query}
-                        onChangeText={text => this.setState({ query: text })}
-                        renderItem={item => (
-                            <TouchableOpacity onPress={() => this.setState({ query: item })}>
-                                <Text>{item}</Text>
-                            </TouchableOpacity>
-                        )}
-                    /> */}
                     <InputReg value={this.state.value_email} placeholder={"Masukkan email"}
                               onChangeText={(e) => this.setState({value_email: e})}/>
                     <Btn onPress={this.onInvite()} text={"Invite"}/>
                     <View style={styles.separatorContainer}>
-                        <View style={styles.separatorLine}/>
-                        <View style={{
-                            height: 30,
-                            backgroundColor: '#FFA726',
-                            borderRadius: 20,
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                        }}><Text style={styles.separatorOr}>Or Scan QR Code</Text></View>
+                        <View style={styles.separatorLine}/><Text style={styles.separatorOr}>Or</Text>
                         <View style={styles.separatorLine_}/>
                     </View>
-                    <View style={{height: 250, margin: 10}}>
-                        <QRCodeScanner
-                            onRead={this.onSuccess.bind(this)}
-                        />
-                    </View>
+                    <Btn onPress={this.qrCode()} text={"Scan Qr Code"}/>
+                    {/*<View style={{height: 250, margin: 10}}>*/}
+                        {/*<QRCodeScanner*/}
+                            {/*onRead={this.onSuccess.bind(this)}*/}
+                        {/*/>*/}
+                    {/*</View>*/}
                 </Content>
             </Container>
         );
@@ -168,16 +126,16 @@ const styles = StyleSheet.create({
         flex: 1,
         borderWidth: StyleSheet.hairlineWidth,
         height: StyleSheet.hairlineWidth,
-        borderColor: '#FFFFFF'
+        borderColor: '#000'
     },
     separatorLine_: {
         flex: 1,
         borderWidth: StyleSheet.hairlineWidth,
         height: StyleSheet.hairlineWidth,
-        borderColor: '#FFFFFF'
+        borderColor: '#000'
     },
     separatorOr: {
-        color: '#FFFFFF',
+        color: '#000',
         marginHorizontal: 8,
         fontSize: normalizeFont(4 * .5)
     },
