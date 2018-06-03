@@ -156,9 +156,9 @@ class ScreenAdd extends Component {
                         rowSpan={8}
                         placeholder={"Project description"}
                     />
-                    <Radio
-                        onPress={(v) => this.setState({ value_project_status: v })}
-                        radio_props={radio_props} />
+                    {/*<Radio*/}
+                        {/*onPress={(v) => this.setState({ value_project_status: v })}*/}
+                        {/*radio_props={radio_props} />*/}
                     <Btn
                         onPress={this._onSave()}
                         text={"Save Project"} />

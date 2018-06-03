@@ -28,11 +28,9 @@ class ScreenFavorit extends Component {
                 <Head
                     body={"Favorit"}
                 />
-                <Text style={styles.welcome}>
-                    Welcome to React Native!
-                </Text>
                 <Text style={styles.instructions}>
-                    ScreenFavorit
+
+                    no favorites yet
                 </Text>
                 <Text style={styles.instructions}>
                 </Text>

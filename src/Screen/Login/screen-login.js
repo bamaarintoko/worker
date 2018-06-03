@@ -86,18 +86,6 @@ class ScreenLogin extends Component {
                             />
 
                         </View>
-                        <View style={{
-                            flex: 2,
-                            alignItems: 'center',
-                            justifyContent: 'center'
-                        }}>
-                            <Image
-                            style={{ height: 50 }}
-                            source={require('../../Assets/logotext.png')}
-                            resizeMode={"contain"}
-                        />
-
-                        </View>
 
 
                     </View>
@@ -117,7 +105,7 @@ class ScreenLogin extends Component {
                             <TouchableWithoutFeedback
                                 onPress={() => this.props.navigation.navigate('Register')}>
                                 <View style={{ flex: 1, height: 40, justifyContent: 'center' }}>
-                                    <Text style={{ color: '#000000', fontSize: normalizeFont(4 * .5) }}>Create
+                                    <Text style={{ color: '#fff', fontSize: normalizeFont(4 * .5) }}>Create
                         Account</Text>
 
                                 </View>
@@ -125,7 +113,7 @@ class ScreenLogin extends Component {
                             <TouchableWithoutFeedback style={{ paddingTop: 10, paddingBottom: 10 }}
                                 onPress={() => console.log("asu")}>
                                 <View style={{ flex: 1, alignItems: 'flex-end', height: 40, justifyContent: 'center' }}>
-                                    <Text style={{ color: '#000000', fontSize: normalizeFont(4 * .5) }}>Forgot
+                                    <Text style={{ color: '#fff', fontSize: normalizeFont(4 * .5) }}>Forgot
                         Password?</Text>
                                 </View>
                             </TouchableWithoutFeedback>

@@ -21,6 +21,7 @@ import { normalize, normalizeFont } from '../../Utils/func';
 import { GET_PROJECT_RESET } from '../../Utils/Constant';
 import { ProjectCard } from '../../Components/ProjectCard';
 import Api from '../../Utils/Api';
+import LinearGradient from "react-native-linear-gradient";
 class ScreenHome extends Component {
     static navigationOptions = {
         header: null,
@@ -96,6 +97,7 @@ class ScreenHome extends Component {
                     rightPress_={() => this.props.navigation.navigate('Setting')}
                     rightIcon={"cog"}
                 />
+
                 {
                     this.state.data.length > 0
                         ?
