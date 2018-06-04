@@ -12,7 +12,7 @@ import com.facebook.soloader.SoLoader;
 import com.BV.LinearGradient.LinearGradientPackage; // <--- This!
 import java.util.Arrays;
 import java.util.List;
-
+import com.imagepicker.ImagePickerPackage; // <-- add this import
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
@@ -26,6 +26,7 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new RNCameraPackage(),
+            new ImagePickerPackage(),
           new VectorIconsPackage(),
           new LinearGradientPackage() // <---- and This!
       );
