@@ -19,6 +19,7 @@
 		"react-native-autocomplete-select": "^1.0.0",
 		"react-native-awesome-alerts": "^1.0.7",
 		"react-native-camera": "^1.1.4",
+		"react-native-image-picker": "^0.26.10",
 		"react-native-linear-gradient": "^2.4.0",
 		"react-native-loading-spinner-overlay": "^0.5.2",
 		"react-native-modal": "^6.0.0",
