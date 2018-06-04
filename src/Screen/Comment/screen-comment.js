@@ -241,7 +241,7 @@ class ScreenComment extends Component {
                     colors={['#4FC3F7', '#1E88E5', '#1A237E']}>
                     <View style={{width: 10 + '%'}}>
                         <Button transparent full style={{height: 40}} onPress={this.onPickImage()}>
-                            <Icon name="plus" size={20} color='#FFFFFF'/>
+                            <Icon name="camera" size={20} color='#FFFFFF'/>
                         </Button>
                     </View>
                     <View style={{width: 80 + '%', justifyContent: 'center'}}>
