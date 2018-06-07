@@ -6,7 +6,6 @@ import Head from '../../Components/Head';
 import {InputReg} from '../../Components/Input';
 import {Btn} from '../../Components/Button';
 import QRCodeScanner from 'react-native-qrcode-scanner';
-import Autocomplete from 'react-native-autocomplete-input'
 import Api from '../../Utils/Api';
 import {actInvite} from './action';
 import {GET_INVITE, GET_INVITE_RESET} from '../../Utils/Constant';

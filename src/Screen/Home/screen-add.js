@@ -16,7 +16,6 @@ import { Radio } from '../../Components/Radio';
 import Api from '../../Utils/Api';
 import { actAddProject } from './action';
 import Modal from "react-native-modal";
-import Spinner from 'react-native-loading-spinner-overlay';
 import { ADD_PROJCET_RESET } from '../../Utils/Constant';
 import StatusBarAlert from 'react-native-statusbar-alert'
 var radio_props = [
