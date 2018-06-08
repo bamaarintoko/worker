@@ -1,7 +1,7 @@
 apply plugin: "com.android.application"
-// project.ext.vectoricons = [
-//     iconFontNames: [ 'FontAwesome.ttf' ] // Name of the font files you want to copy
-// ]
+ project.ext.vectoricons = [
+     iconFontNames: [ 'FontAwesome.ttf' ] // Name of the font files you want to copy
+ ]
 
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 import com.android.build.OutputFile
@@ -90,12 +90,12 @@ apply from: "../../node_modules/react-native/react.gradle"
  * Upload all the APKs to the Play Store and people will download
  * the correct one based on the CPU architecture of their device.
  */
-def enableSeparateBuildPerCPUArchitecture = false
+def enableSeparateBuildPerCPUArchitecture = true
 
 /**
  * Run Proguard to shrink the Java bytecode in release builds.
  */
-def enableProguardInReleaseBuilds = false
+def enableProguardInReleaseBuilds = true
 
 android {
     compileSdkVersion 26
@@ -108,7 +108,7 @@ android {
         versionCode 1
         versionName "1.0"
         ndk {
-            abiFilters "armeabi-v7a", "x86"
+            abiFilters "armeabi-v7a"
         }
     }
     signingConfigs {
@@ -126,11 +126,16 @@ android {
             reset()
             enable enableSeparateBuildPerCPUArchitecture
             universalApk false  // If true, also generate a universal APK
-            include "armeabi-v7a", "x86"
+            include "armeabi-v7a"
         }
     }
     buildTypes {
         release {
+            debuggable false
+            shrinkResources enableProguardInReleaseBuilds
+            zipAlignEnabled enableProguardInReleaseBuilds
+            minifyEnabled enableProguardInReleaseBuilds
+            useProguard enableProguardInReleaseBuilds
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             signingConfig signingConfigs.release
