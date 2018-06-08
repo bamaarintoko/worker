@@ -98,13 +98,13 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
-    compileSdkVersion 27
-    //buildToolsVersion "26.0.1"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
 
     defaultConfig {
         applicationId "com.developer"
         minSdkVersion 16
-        targetSdkVersion 27
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         ndk {
@@ -152,11 +152,12 @@ android {
 }
 
 dependencies {
+    compile (project(':react-native-camera'))
     compile project(':react-native-image-picker')
     compile project(':react-native-vector-icons')
     compile project(':react-native-linear-gradient')
     compile fileTree(dir: "libs", include: ["*.jar"])
-    compile "com.android.support:appcompat-v7:27.1.1"
+    compile "com.android.support:appcompat-v7:26.1.0"
     provided "com.facebook.react:react-native:+"  // From node_modules
 }
 
