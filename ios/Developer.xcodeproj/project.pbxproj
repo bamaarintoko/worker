@@ -57,6 +57,7 @@
 		A0C2BFD1C9D148D29CD7A37D /* libReactNativePermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E9B098C9B24D67AE4ED4DD /* libReactNativePermissions.a */; };
 		40444814269A49B19E464B09 /* libRCTImageResizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E48F3DCEACE04614BC74761B /* libRCTImageResizer.a */; };
 		8E211D06DD094F178168E1FE /* libRNImgToBase64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77486764C7E140FD80E95577 /* libRNImgToBase64.a */; };
+		6A28F467BFC84A209144A50D /* libRNSnackbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C23144EFF74554ADD8C232 /* libRNSnackbar.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -389,6 +390,8 @@
 		E48F3DCEACE04614BC74761B /* libRCTImageResizer.a */ = {isa = PBXFileReference; name = "libRCTImageResizer.a"; path = "libRCTImageResizer.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		5116B1281690494396DEECA5 /* RNImgToBase64.xcodeproj */ = {isa = PBXFileReference; name = "RNImgToBase64.xcodeproj"; path = "../node_modules/react-native-image-base64/ios/RNImgToBase64.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		77486764C7E140FD80E95577 /* libRNImgToBase64.a */ = {isa = PBXFileReference; name = "libRNImgToBase64.a"; path = "libRNImgToBase64.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		5F1307E47AA0451BA337ECF2 /* RNSnackbar.xcodeproj */ = {isa = PBXFileReference; name = "RNSnackbar.xcodeproj"; path = "../node_modules/react-native-snackbar/ios/RNSnackbar.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		15C23144EFF74554ADD8C232 /* libRNSnackbar.a */ = {isa = PBXFileReference; name = "libRNSnackbar.a"; path = "libRNSnackbar.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -424,6 +427,7 @@
 				A0C2BFD1C9D148D29CD7A37D /* libReactNativePermissions.a in Frameworks */,
 				40444814269A49B19E464B09 /* libRCTImageResizer.a in Frameworks */,
 				8E211D06DD094F178168E1FE /* libRNImgToBase64.a in Frameworks */,
+				6A28F467BFC84A209144A50D /* libRNSnackbar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,6 +621,7 @@
 				42A011B23BDD44308948E441 /* ReactNativePermissions.xcodeproj */,
 				B33944E2673D4353A4D206A2 /* RCTImageResizer.xcodeproj */,
 				5116B1281690494396DEECA5 /* RNImgToBase64.xcodeproj */,
+				5F1307E47AA0451BA337ECF2 /* RNSnackbar.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1283,6 +1288,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1293,6 +1299,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-permissions\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-image-resizer\ios\RCTImageResizer",
 					"$(SRCROOT)\..\node_modules\react-native-image-base64\ios",
+					"$(SRCROOT)\..\node_modules\react-native-snackbar\ios",
 				);
 			};
 			name = Debug;
@@ -1318,6 +1325,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1328,6 +1336,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-permissions\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-image-resizer\ios\RCTImageResizer",
 					"$(SRCROOT)\..\node_modules\react-native-image-base64\ios",
+					"$(SRCROOT)\..\node_modules\react-native-snackbar\ios",
 				);
 			};
 			name = Release;
@@ -1356,6 +1365,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-permissions\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-image-resizer\ios\RCTImageResizer",
 					"$(SRCROOT)\..\node_modules\react-native-image-base64\ios",
+					"$(SRCROOT)\..\node_modules\react-native-snackbar\ios",
 				);
 			};
 			name = Debug;
@@ -1383,6 +1393,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-permissions\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-image-resizer\ios\RCTImageResizer",
 					"$(SRCROOT)\..\node_modules\react-native-image-base64\ios",
+					"$(SRCROOT)\..\node_modules\react-native-snackbar\ios",
 				);
 			};
 			name = Release;
@@ -1417,6 +1428,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1427,6 +1439,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-permissions\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-image-resizer\ios\RCTImageResizer",
 					"$(SRCROOT)\..\node_modules\react-native-image-base64\ios",
+					"$(SRCROOT)\..\node_modules\react-native-snackbar\ios",
 				);
 			};
 			name = Debug;
@@ -1461,6 +1474,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1471,6 +1485,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-permissions\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-image-resizer\ios\RCTImageResizer",
 					"$(SRCROOT)\..\node_modules\react-native-image-base64\ios",
+					"$(SRCROOT)\..\node_modules\react-native-snackbar\ios",
 				);
 			};
 			name = Release;
@@ -1504,6 +1519,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1514,6 +1530,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-permissions\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-image-resizer\ios\RCTImageResizer",
 					"$(SRCROOT)\..\node_modules\react-native-image-base64\ios",
+					"$(SRCROOT)\..\node_modules\react-native-snackbar\ios",
 				);
 			};
 			name = Debug;
@@ -1547,6 +1564,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1557,6 +1575,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-permissions\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-image-resizer\ios\RCTImageResizer",
 					"$(SRCROOT)\..\node_modules\react-native-image-base64\ios",
+					"$(SRCROOT)\..\node_modules\react-native-snackbar\ios",
 				);
 			};
 			name = Release;
