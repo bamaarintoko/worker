@@ -7,7 +7,6 @@ import { Image, StyleSheet, View, TouchableWithoutFeedback, ImageStore } from "r
 import LinearGradient from "react-native-linear-gradient";
 import ImagePicker from "react-native-image-picker";
 import ImageResizer from 'react-native-image-resizer'
-import ImgToBase64 from 'react-native-image-base64';
 
 function mapStateToProps(state) {
     return {};
@@ -15,10 +14,6 @@ function mapStateToProps(state) {
 
 let options = {
     title: 'Select Image',
-    // noData:true,
-    // customButtons: [
-    //     {name: 'fb', title: 'Choose Photo from Facebook'},
-    // ],
     storageOptions: {
         skipBackup: true,
         path: 'images'
@@ -55,41 +50,20 @@ class ScreenComment extends Component {
                     console.log('data:image/png;base64,' + response.data)
                     ImageResizer.createResizedImage('data:image/png;base64,' + response.data, 200, 200, 'JPEG', 80)
                         .then(({ uri }) => {
-                            console.log(uri)
+                            // console.log(uri)
                             ImageStore.getBase64ForTag("file://" + uri, (data) => {
-                                let source = 'data:image/png;base64,' +data;
-                                console.log('getBase64ForTag', source);
+                                let source = 'data:image/png;base64,' + data;
+                                // console.log('getBase64ForTag', source);
                                 this.setState({
                                     isAddImage: true,
                                     imagePreview: source
-                                    // ...this.state,
-                                    // capturedImage: { data, uri: imageURI.uri },
-                                    // isLoading: false
                                 });
                             }, (e) => {
                                 console.log('getBase64ForTag-error', e);
-                                // this.setState({
-                                //     ...this.state,
-                                //     isLoading: false
-                                // });
                             });
-                            // this.setState({
-                            //     resizedImageUri: uri,
-                            // });
                         }).catch((err) => {
                             console.log(err);
-                            return Alert.alert('Unable to resize the photo',
-                                'Check the console for full the error message');
                         });
-                    // // let source = { uri: response.uri };
-                    // console.log(response.uri)
-                    // // You can also display the image using data:
-                    // let source = response.data;
-                    // console.log(source)
-                    // this.setState({
-                    //     isAddImage: true,
-                    //     imagePreview: source
-                    // });
                 }
             });
         }
@@ -222,30 +196,32 @@ class ScreenComment extends Component {
                         </View>
                     </View>
                 </Content>
-                <Thumbnail square source={{ uri: this.state.imagePreview }} />
-                {/* {
+                {/* <Thumbnail square source={{ uri: this.state.imagePreview }} /> */}
+                {
                     this.state.isAddImage
-                    && */}
-                {/* <View style={{ width: '100%', height: 100, backgroundColor: 'white', flexDirection: 'row' }}> */}
+                    &&
+                    <View style={{ width: '100%', height: 100, backgroundColor: 'white', flexDirection: 'row' }}>
 
-                {/* <View style={{}}> */}
+                        <View style={{}}>
 
-                {/* <View style={{
+                            <View style={{
                                 height: 85,
                                 overflow: 'hidden',
                                 borderRadius: 5,
                                 margin: 5,
                                 width: 85,
+                                justifyContent: 'center',
+                                alignItems: 'center',
                                 backgroundColor: 'red'
-                            }}> */}
+                            }}>
 
 
-                {/* <Image
+                                <Image
 
-                                    style={{ width: 500, height: 500}}
-                                    source={{isStatic: true, uri: 'data:image/png;base64,'+this.state.imagePreview }} /> */}
-                {/* </View> */}
-                {/* <TouchableWithoutFeedback onPress={this.onRemoveImage()}>
+                                    style={{ width: 100, height: 100 }}
+                                    source={{ isStatic: true, uri: this.state.imagePreview }} />
+                            </View>
+                            <TouchableWithoutFeedback onPress={this.onRemoveImage()}>
                                 <View style={{
                                     height: 25,
                                     borderRadius: 15,
@@ -261,11 +237,11 @@ class ScreenComment extends Component {
                                 }}>
                                     <Icon name="times" size={20} color='#BEBEBE' />
                                 </View>
-                            </TouchableWithoutFeedback> */}
+                            </TouchableWithoutFeedback>
 
-                {/* </View> */}
-                {/* </View> */}
-                {/* } */}
+                        </View>
+                    </View>
+                }
 
                 <LinearGradient
                     style={{ height: 50, width: '100%', backgroundColor: '#9E9E9E', padding: 5, flexDirection: 'row' }}
