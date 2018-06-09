@@ -38,7 +38,7 @@ class ScreenLogin extends Component {
         }
         Api._POST('auth/login_developer', params)
             .then((response) => {
-                console.log(response)
+                // console.log(response)
                 this.props.dispatch({
                     type: LOGIN,
                     status_get: response.data.status,
@@ -75,30 +75,6 @@ class ScreenLogin extends Component {
             state[key] = e
             this.setState(state)
         }
-    }
-    componentDidUpdate(prevProps, prevState) {
-        // if (prevState.initialRedLogin === this.props.redAuth.status) {
-        //     if (this.props.redAuth.status_get) {
-        //         this.setState({
-        //             isLoginSucces: true,
-        //             isLoginError: false
-        //         })
-        //         this.props.dispatch({ type: 'HOME' })
-        //     } else {
-        //         console.log("error")
-        //         Snackbar.show({
-        //             title: 'Login gagal. Cek email dan password',
-        //             duration: Snackbar.LENGTH_SHORT,
-        //         });
-        //         this.setState({
-        //             isLoginSucces: false,
-        //             isLoginError: true,
-        //             message: "Login gagal. Cek email dan password"
-        //         })
-        //     }
-        //     this.props.dispatch({ type: LOGIN_RESET })
-        // }
-        // console.log("--->", this.props.redAuth)
     }
 
     render() {
